@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Помошник</title>
+</head>
+<body>
+<h1>К-52</h1>
+
+<h2>Команды</h2>
+<h3>Получить перечень скомпилированных модулей:</h3>
+
+<code>httpd -l</code><br>
+или<br>
+<code>apache2 -l</code><br>
+или<br>
+<code>k-52 -l</code><br>
+<br>
+Результат:<br>
+<br>
+<code>Compiled in modules:<br>
+&nbsp;&nbsp;core.c<br>
+&nbsp;&nbsp;mod_so.c<br>
+&nbsp;&nbsp;mod_watchdog.c<br>
+&nbsp;&nbsp;http_core.c<br>
+&nbsp;&nbsp;mod_log_config.c<br>
+&nbsp;&nbsp;mod_logio.c<br>
+&nbsp;&nbsp;mod_version.c<br>
+&nbsp;&nbsp;mod_unixd.c<br>
+</code>
+
+<h2>Компиляция сервера.</h2>
+<h3>Компилируем библиотеку PCRE</h3>
+<code>
+tar -xvzf pcre-8.38.tar.gz<br>
+cd pcre-8.38<br>
+./configure --prefix=/lazutin.info/ka-52<br>
+make<br>
+make install<br>
+cd ..<br>
+</code>
+<h3>Вставляем библиотеку APR (будем ее компилить одновременно с сервером)</h3>
+<code>tar -xvzf apr-1.5.2.tar.gz<br>
+mv apr-1.5.2 httpd-2.4.25/srclib/apr<br>
+</code>
+
+<h3>Вставляем библиотеку APR-util (будем ее компилить одновременно с сервером)</h3>
+<code>tar -xvzf apr-util-1.5.4.tar.gz<br>
+mv apr-util-1.5.4 httpd-2.4.25/srclib/apr-util<br>
+</code>
+
+<h3>Компилируем сервер</h3>
+<code>tar -xvzf httpd-2.4.25.tar.gz<br>
+cd httpd-2.4.25<br>
+<br>
+./configure \<br>
+--prefix=/lazutin.info/ka-52 \<br>
+--with-included-apr \<br>
+--with-pcre=/lazutin.info/ka-52/bin/pcre-config \<br>
+--enable-module=proxy<br>
+<br>
+make<br>
+make install<br>
+</code>
+
+<h4>Опции конфигурировния сервера при компиляции</h4>
+<table border="1" cellpadding="10" cellspacing="0">
+
+  <tr>
+    <td><strong>Опция</strong></td>
+    <td><strong>Описание</strong></td>
+    <td><strong>Пример использования</strong></td>
+  </tr>
+  
+  <tr>
+    <td><code>-h</code></td>
+    <td>Получить список доступных модулей для конфигурации</td>
+    <td><code>./configure -h</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--prefix</code></td>
+    <td>Папка установки сервера</td>
+    <td><code>./configure --prefix=/lazutin.info/ka-52</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--with-included-apr</code></td>
+    <td>Если библиотеки APR и APR-util предварительно не установлены в системе, то эта опция указывает, что эти библиотеки нужно компилировать вместе с сервером. Исходники библиотек APR и APR-util предварительно должны быть помещены в папки httpd-2.4.25/srclib/apr и httpd-2.4.25/srclib/apr-util соответственно.</td>
+    <td><code>./configure --with-included-apr</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--with-pcre</code></td>
+    <td>Указывает путь к файлу pcre-config библиотеки PCRE</td>
+    <td><code>./configure --with-pcre=/lazutin.info/ka-52/bin/pcre-config</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--enable-module</code></td>
+    <td>Включает модуль в сборку сервера</td>
+    <td><code>./configure --enable-module=proxy</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--disable-module</code></td>
+    <td>Исключает модуль из сборки сервера</td>
+    <td><code>./configure --disable-module=asis</code></td>
+  </tr>
+  
+  <tr>
+    <td><code>--enable-rule</code></td>
+    <td>Включить возможность работы с динамическими разделяемыми объектами</td>
+    <td><code>./configure --enable-rule=SHARED_CORE</code></td>
+  </tr>
+  
+</table>
+
+<br><br>
+
+ <h2>Конфигурационные файлы</h2>
+Настройки сервера хрянятся в конфигурационных файлах, которые считываются во время запуска сервера.<br><br>
+
+<table border="1" cellpadding="10" cellspacing="0">
+<tr>
+<td><strong>conf/httpd.conf</strong></td> <td> - основные настройки</td>
+</tr>
+<tr>
+<td><strong>conf/srm.conf</strong></td> <td> - настройки определяющие, каким образом ресурсы сервера будут использоваться.<sup>*</sup></td>
+</tr>
+<tr>
+<td><strong>conf/access.conf</strong></td> <td> - управление доступом.<sup>*</sup></td>
+</tr>
+</table>
+<br>
+<em><sup>*</sup> - сейчас все конфигурационные директивы можно поместить в конфигурационном файле httpd.conf.</em>
+
+
+<h2>Модули</h2>
+<table border="1" cellpadding="10" cellspacing="0">
+  
+  <tr>
+    <td><strong>http_core</strong></td>
+    <td><strong>bin/httpd</strong></td>
+    <td> - основные функциональные возможности сервера.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_env</strong></td>
+    <td><strong>bin/httpd</strong></td>
+    <td> - обеспечивает передачу переменных окружения CGI-сценариям.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_log_config</strong></td>
+    <td><strong>bin/httpd</strong></td>
+    <td> - журналирование с возможностью конфигурирования пользователя.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_mime</strong></td>
+    <td><strong>bin/httpd</strong></td>
+    <td> - обеспечивает определение типов документов по расширениям.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_so</strong></td>
+    <td><strong>??? libexec/mod.so</strong></td>
+    <td> - позволяет во время исполнения загружать модули (директивой LoadModule)</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_asis</strong></td>
+    <td><strong>??? libexec/</strong></td>
+    <td> - позволяет обслуживать файлы и заголовки в их текущем состоянии</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_cgi</strong></td>
+    <td><strong>??? libexec/</strong></td>
+    <td> - позволяет использовать CGI.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_imap</strong></td>
+    <td><strong>??? libexec/</strong></td>
+    <td> - позволяет обрабатывать изображения</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_access</strong></td>
+    <td><strong>???</strong></td>
+    <td> - управление доступом.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/httpd.exp</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_access_compat.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_actions</strong></td>
+    <td><strong>modules/mod_actions.so</strong></td>
+    <td> - позволяет использовать CGI-сценарии для обработки определенных типов файлов.</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_alias</strong></td>
+    <td><strong>modules/mod_alias.so</strong></td>
+    <td> - переопределение URL и перемещение в пределах одной файловой системы.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_allowmethods.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_auth</strong></td>
+    <td>
+      <strong>
+        modules/mod_auth_basic.so<br>
+        modules/mod_auth_digest.so<br>
+        modules/mod_auth_form.so
+      </strong>
+    </td>
+    <td> - ограничение идентификации.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_authn_anon.so<br>
+        modules/mod_authn_core.so<br>
+        modules/mod_authn_dbd.so<br>
+        modules/mod_authn_dbm.so<br>
+        modules/mod_authn_file.so<br>
+        modules/mod_authn_socache.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_authz_core.so<br>
+        modules/mod_authz_dbd.so<br>
+        modules/mod_authz_dbm.so<br>
+        modules/mod_authz_groupfile.so<br>
+        modules/mod_authz_host.so<br>
+        modules/mod_authz_owner.so<br>
+        modules/mod_authz_user.so<br>
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_autoindex</strong></td>
+    <td><strong>modules/mod_autoindex.so</strong></td>
+    <td> - автоматическое индексирование каталогов.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_buffer.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_cache_disk.so<br>
+        modules/mod_cache.so<br>
+        modules/mod_cache_socache.so<br>
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_cgid.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_dav_fs.so<br>
+        modules/mod_dav.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_dbd.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_deflate.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_dir</strong></td>
+    <td><strong>modules/mod_dir.so</strong></td>
+    <td> - основное отображение информации о каталогах.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_dumpio.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_env.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_expires.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_ext_filter.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_file_cache.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_filter.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_headers.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_include</strong></td>
+    <td><strong>modules/mod_include.so</strong></td>
+    <td> - позволяет найти и заместить все вставленные на стороне сервера модули</td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_info</strong></td>
+    <td><strong>modules/mod_info.so</strong></td>
+    <td> - позволяет отображать конфигурационную информацию сервера</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_lbmethod_bybusyness.so<br>
+        modules/mod_lbmethod_byrequests.so<br>
+        modules/mod_lbmethod_bytraffic.so<br>
+        modules/mod_lbmethod_heartbeat.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_log_config.so<br>
+        modules/mod_log_debug.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_logio.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_macro.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_mime.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_negotiation</strong></td>
+    <td><strong>modules/mod_negotiation.so</strong></td>
+    <td> - позволяет анализировать как файл карты типа? Согласование содержимого.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_proxy_ajp.so<br>
+        modules/mod_proxy_balancer.so<br>
+        modules/mod_proxy_connect.so<br>
+        modules/mod_proxy_express.so<br>
+        modules/mod_proxy_fcgi.so<br>
+        modules/mod_proxy_fdpass.so<br>
+        modules/mod_proxy_ftp.so<br>
+        modules/mod_proxy_hcheck.so<br>
+        modules/mod_proxy_http.so<br>
+        modules/mod_proxy_scgi.so<br>
+        modules/mod_proxy.so<br>
+        modules/mod_proxy_wstunnel.so<br>
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_ratelimit.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_remoteip.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_reqtimeout.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_request.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_rewrite.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_sed.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_session_cookie.so<br>
+        modules/mod_session_dbd.so<br>
+        modules/mod_session.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_setenvif</strong></td>
+    <td><strong>modules/mod_setenvif.so</strong></td>
+    <td> - обеспечивает возможность устанавливать переменные окружения сервера на основании информации о пользователе.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_slotmem_shm.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td>
+      <strong>
+        modules/mod_socache_dbm.so<br>
+        modules/mod_socache_memcache.so<br>
+        modules/mod_socache_shmcb.so
+      </strong>
+    </td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_speling.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_ssl.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_status</strong></td>
+    <td><strong>modules/mod_status.so</strong></td>
+    <td> - позволяет отображать информацию о статусе сервера в виде Web-страницы</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_substitute.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_unique_id.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_unixd.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong>mod_userdir</strong></td>
+    <td><strong>modules/mod_userdir.so</strong></td>
+    <td> - позволяет обрабатывать страницы из пользовательских корневых каталогов.</td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_version.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_vhost_alias.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+  <tr>
+    <td><strong></strong></td>
+    <td><strong>modules/mod_watchdog.so</strong></td>
+    <td> - </td>
+  </tr>
+  
+</table>
+  
+  
+<br>
+
+<h3>Дескрипторы mod_so</h3>
+
+<h3>Дескрипторы mod_asis</h3>
+<b>send-as-is</b> - Обслуживать файл в их текущем состоянии<br>
+<h3>Дескрипторы mod_cgi</h3>
+<b>cgi-script</b> - Выполнить CGI сценарий<br>
+<h3>Дескрипторы mod_imap</h3>
+<b>imap-file</b> - Файл правил обработки изображений<br>
+<h3>Дескрипторы mod_info</h3>
+<b>server-info</b> - Отображение конфигурационной информации сервера<br>
+<h3>Дескрипторы mod_include</h3>
+<b>server-parsed</b> - Найти и заместить все вставленные на стороне сервера модули<br>
+
+<h3>Дескрипторы mod_status</h3>
+<b>server-status</b> - Отображать информации о статусе сервера<br>
+<h3>Дескрипторы mod_negotiation</h3>
+<b>type-map</b> - Анализировать как файл карты типа<br>
+
+
+<h2>Директивы</h2>
+<br>
+Область действия директивы может быть ограничена тремя способами:<br>
+<ul>
+	<li>По каталогу с помощью директив &lt;Directory&gt;, &lt;DirectoryMatch&gt; или файла .htaccess.</li>
+<br>
+<samp>
+&lt;Directory /home/site2&gt;<br>
+&nbsp;&nbsp;Директива 1<br>
+&nbsp;&nbsp;Директива 2<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;Директива n<br>
+&lt;/Directory&gt;<br>
+</samp>
+<br>
+<samp>&lt;DirectoryMatch &quot;/home/site[1-3]&quot;&gt;<br>
+&nbsp;&nbsp;Директива 1<br>
+&nbsp;&nbsp;Директива 2<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;Директива n<br>
+&lt;/DirectoryMatch&gt;<br>
+<br>
+<i>будут удовлетворять Три Каталога /home/sitel, /home/site2 И /home/site3.</i><br>
+</samp>
+<br>
+	<li>По URL с помощью директив &lt;Location&gt; и &lt;LocationMatch&gt;.</li>
+<br>
+<samp>
+&lt;Location /status&gt;<br>
+&nbsp;&nbsp;Директива 1<br>
+&nbsp;&nbsp;Директива 2<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;Директива n<br>
+&lt;/Location&gt;<br>
+<br>
+Сервер будет использовать эти директивы в случае, когда запрашивается следующий адрес: http://www.example.com/status<br>
+</samp>
+<br>
+	
+	<li>По файлу с помощью директив &lt;Files&gt; и &lt;FilesMatch&gt;.</li>
+<br>
+<samp>
+&lt;Files index.html&gt;<br>
+&nbsp;&nbsp;Директива 1<br>
+&nbsp;&nbsp;Директива 2<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;Директива n<br>
+&lt;/Files&gt;<br>
+<br>
+</samp>
+</ul>
+<br>
+
+<h3>AccessFileName</h3>
+Переопределяет имя файла .htaccess<br><br>
+
+<h3>AddHandler</h3>
+Актифизирует дескрипторы из внешних модулей<br><br>
+
+<samp>AddHandler cgi-script .pl</samp><br><br>
+передавать все файлы с расширением .рl на обработку дескриптору cgi-script из модуля mog_cgi.<br><br>
+
+
+
+<h3>AllowOverride</h3>
+Включение/выключение переопределения деректив файлами .htaccess<br><br>
+<table border="1" cellpadding="10" cellspacing="0">
+<tr>
+<td><b>All</b></td> <td>разрешает использование всех директив</td>
+</tr>
+<tr>
+<td><b>None</b></td> <td>Запрещает использование всех директив. Поиск файлов невозможен</td>
+</tr>
+<tr>
+<td><b>AuthConfig</b></td> <td>Разрешает использование директив AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, require</td>
+</tr>
+<tr>
+<td><b>FileInfo</b></td> <td>Разрешает использование директив AddEncoding, AddLanguage, AddType, DefaulType, ErrorDocument, LanguagePriorty</td>
+</tr>
+<tr>
+<td><b>Indexes</b></td> <td>Разрешает использование директив AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadMeName</td>
+</tr>
+<tr>
+<td><b>Limit</b></td> <td>Разрешает использование директив allow, deny и order</td>
+</tr>
+<tr>
+<td><b>Options</b></td> <td>Разрешает использование директив options и XBitHack</td>
+</tr>
+</table>
+<br>
+<samp>AllowOverride Options Filelnfo</samp>
+
+<h3>LoadModule</h3>
+Во время исполнения загружает модуль. В этой директиве задается имя модуля и путь к файлу разделяемого объекта:<br>
+<br>
+<samp>LoadModule perl_module libexec/libperl.so</samp><br>
+<br>
+
+<h3>SetHandler</h3>
+Активизирует дескрипторы из внешних модулей. Предназначена для использования внутри скобок &lt;Directory&gt; или &lt;Location&gt;.<br><br>
+
+<samp>
+&lt;Location /images&gt;<br>
+&nbsp;&nbsp;SetHandler imap-file<br>
+&lt;/Location&gt;<br>
+</samp><br>
+Все файлы, содержащиеся в каталоге /images обрабатывать как файлы правил обработки изображений.<br><br>
+
+
+<h2>Запуск сервера</h2>
+Запуск сервера осуществляется скриптом /bin/apachectl. При необходимости сервер /bin/httpd можно переименовать. Чтобы он запускался, нужно в скрипте запуска apachectl изменить переменную HTTPD='/lazutin.info/ka-52/bin/httpd'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Прочее</h2>
+1.8. MIME-типы
+Термин MIME является аббревиатурой термина Multimedia Internet Mail Extensions
+(Расширения Мультимедиа для почты в Internet). Смысл, заложенный в концепции
+MIME-типов, заключается в том, чтобы дать программам возможность определить
+тип данных, содержащихся в файле, по расширению файла. По умолчанию MIME-тип сервера Apache и соответствующие им расширения можно найти в файле
+mime.types, который находится в каталоге conf. Конечно расположение этого файла
+можно изменить. Для этих целей воспользуемся директивой TypesConfig. Например
+TypesConfig /etc/mime.types
+позволит разместить файл mime . types в каталоге /etc.
+Для ассоциации определенного MIME-типа с определенным расширением файла
+обратимся к директиве AddType. Например, директива
+AddType application/x-httpd-php .php
+сообщает серверу, что файлы, с расширением .php, содержат данные в формате
+HTML с кодом РНР4. С помощью MIME-типов сервер Apache определяет, какой тип
+предварительной обработки файлов требуется перед их доставкой пользователям. При
+работе с MIME-типами рекомендуется пользоваться директивой AddType и воздерживаться от прямого внесения изменений в файл mime.types.
+
+Еще одной весьма полезной директивой является директива DefaulType. Предполагается, что сервер должен информировать клиентов о типе передаваемых им данных. Если ничего другого не остается, задайте с помощью директивы DefaultType
+тип передаваемых данных:
+DefaultType text/html
+
+
+
+</body>
+</html>
