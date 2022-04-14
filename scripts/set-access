@@ -14,3 +14,4 @@ find "html" -type f -exec chown www-upload:www-data {} \;
 find "html" -type f -exec chmod ug=rw,o=r {} \;
 chown root:www-data "html"
 chmod ug=rwX,o=rX "html"
+chmod ug=rwx,o=r "html/scripts/set-access"

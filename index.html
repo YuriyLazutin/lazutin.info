@@ -49,6 +49,11 @@
       Photos2 = new Image();
       Photos2.src = "photoalbum_l.gif";
 
+      VideoBox1 = new Image();
+      VideoBox1.src = "videobox.png";
+      VideoBox2 = new Image();
+      VideoBox2.src = "videobox_l.png";
+
       Hokkey1 = new Image();
       Hokkey1.src = "hokkey.gif";
       Hokkey2 = new Image();
@@ -206,6 +211,31 @@
                           src="photoalbum.gif"
                           title="Фотоальбом"
                           name="Photos"
+                          border="0"
+                          height="48"
+                          width="48"
+                        >
+                        </img>
+                      </a>
+                    </td>
+                    <td style="vertical-align: top; height: 48px; width: 16px;">
+                      <br>
+                    </td>
+                    <!-- Кнопка "VideoBox" -->
+                    <td style="vertical-align: top; height: 48px; width: 48px;">
+                      <a
+                        href="videobox/index.html"
+                        target="_self"
+                        onmouseout="show('VideoBox', VideoBox1);"
+                        onmouseup="show('VideoBox', VideoBox1);"
+                        onmouseover="show('VideoBox', VideoBox2);"
+                        onmousedown="show('VideoBox', VideoBox2);"
+                      >
+                        <img
+                          alt="VideoBox"
+                          src="videobox.png"
+                          title="VideoBox"
+                          name="VideoBox"
                           border="0"
                           height="48"
                           width="48"
