@@ -1,193 +1,399 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang=ru>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>lazutin.info - п���_�_�_�_а�>�_�_а�_ �_�'�_а�_и�+а �>аз�_�'и�_а �R�_и�_</title>
-    <meta content="�>аз�_�'и�_ �R�_ий" name="author">
-    <meta content="�>аз�_�'и�_ �R�_ий, Та�_�+�<, �:�_кк��й, п�_�_�_�_а�_�_и�_�_�_а�_и��,
-      �_�_�+�_�'�<" name="description">
+    <meta charset=utf-8>
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="author" content="Yuriy Lazutin" >
+    <meta name="description" content="Лазутин Юрий, фотографии">
+    <meta name="keywords" content="Yuriy Lazutin, Лазутин Юрий, Photos, Фотографии">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="Global">
+<!--
+    <meta name="robots" content="index,follow">
+-->
+    <title>Фотоальбом - отпечатки жизни.</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    
   </head>
-  <body onload="window.defaultStatus='�"�_�+�_�_ п�_жа�>�_�_а�'�_ �_а �_�_й �_ай�'
-    lazutin.info'" style="color: rgb(255, 255, 102); background-color:
-    rgb(5, 5, 109); background-image: url(background.png);"
-    alink="#33ccff" link="#33ccff" vlink="#990099">
-    <br>
+  <body
+     bgproperties="fixed"
+     onload="window.defaultStatus='Фотоальбом'"
+     alink="#33ccff"
+     link="#33ccff"
+     vlink="#990099"
+  >
+    
     <script language="javascript" type="text/javascript">
+      Main1 = new Image();
+      Main1.src = "lazutin.info.gif";
+      Main2 = new Image();
+      Main2.src = "lazutin.info_l.gif";
+      
+      MailMe1 = new Image();
+      MailMe1.src = "mail.gif";
+      MailMe2 = new Image();
+      MailMe2.src = "mail_l.gif";
+      
+      VK1 = new Image();
+      VK1.src = "vk.gif";
+      VK2 = new Image();
+      VK2.src = "vk_l.gif";
+      
+      CallMe1 = new Image();
+      CallMe1.src = "skype.gif";
+      CallMe2 = new Image();
+      CallMe2.src = "skype_l.gif";
+      
+      function show(buttonname, buttonvar)
+      {
+      document.images[buttonname].src=buttonvar.src;
+      }
+    </script>
+    
+    <!--
+      border - толщина рамки
+      cellpadding - расстояние от рамки до содержимого ячейки со всех сторон
+      cellspacing - расстояние между рамками (пустая толщина рамки)
+    -->
+    <header>
+      <nav>
+        <table
+           border="0"
+           cellpadding="0"
+           cellspacing="2"
+        >
+          <tbody>
+            <tr>
+              <td style="vertical-align: top; height: 48px; width: 16px;">
+                <br>
+              </td>
+              <!-- Кнопка "На главную" -->
+              <td style="vertical-align: top; height: 48px; width: 48px;">
+                <a
+                  href="http://lazutin.info"
+                  target="_self"
+                  onmouseout="show('Main', Main1);"
+                  onmouseup="show('Main', Main1);"
+                  onmouseover="show('Main', Main2);"
+                  onmousedown="show('Main', Main2);"
+                >
+                  <img
+                    alt="На главную"
+                    src="lazutin.info.gif"
+                    title="На главную"
+                    name="Main"
+                    border="0"
+                    height="48"
+                    width="48"
+                  >
+                  </img>
+                </a>
+              </td>
+              <td style="vertical-align: top; height: 48px; width: 16px;">
+                <br>
+              </td>
+              <!-- Кнопка "Вконтактить" -->
+              <td style="vertical-align: top; height: 48px; width: 48px;">
+                <a
+                  href="https://vk.com/share.php?url=http://lazutin.info/photoalbum/index.html"
+                  target="_self"
+                  onmouseout="show('VK', VK1);"
+                  onmouseup="show('VK', VK1);"
+                  onmouseover="show('VK', VK2);"
+                  onmousedown="show('VK', VK2);"
+                >
+                  <img
+                    alt="Вконтактить!"
+                    src="vk.gif"
+                    title="Вконтактить!"
+                    name="VK"
+                    border="0"
+                    height="48"
+                    width="48"
+                  >
+                  </img>
+                </a>
+              </td>
+              <td style="vertical-align: top; height: 48px; width: 16px;">
+                <br>
+              </td>
+              <!-- Кнопка "Написать мне письмо" -->
+              <td style="vertical-align: top; height: 48px; width: 48px;">
+                <a
+                  href="mailto:lazutin@newmail.ru"
+                  target="_self"
+                  onmouseout="show('MailMe', MailMe1);"
+                  onmouseup="show('MailMe', MailMe1);"
+                  onmouseover="show('MailMe', MailMe2);"
+                  onmousedown="show('MailMe', MailMe2);"
+                >
+                  <img
+                    alt="Написать мне письмо"
+                    src="mail.gif"
+                    title="Написать мне письмо"
+                    name="MailMe"
+                    border="0"
+                    height="48"
+                    width="48"
+                  >
+                  </img>
+                </a>
+              </td>
+              <td style="vertical-align: top; height: 48px; width: 16px;">
+                <br>
+              </td>
+              <!-- Кнопка "Позвонить мне" -->
+              <td style="vertical-align: top; height: 48px; width: 48px;">
+                <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+                <a
+                  href="skype:lazutinyy@live.ru?call"
+                  target="_self"
+                  onmouseout="show('CallMe', CallMe1);"
+                  onmouseup="show('CallMe', CallMe1);"
+                  onmouseover="show('CallMe', CallMe2);"
+                  onmousedown="show('CallMe', CallMe2);"
+                >
+                  <img
+                    alt="Позвонить мне"
+                    src="skype.gif"
+                    title="Позвонить мне"
+                    name="CallMe"
+                    border="0"
+                    height="48"
+                    width="48"
+                  >
+                  </img>
+                </a>
+              </td>
+              <td style="vertical-align: top; height: 48px; width: 16px;">
+                <br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </nav>
+      <table style="width: 100%;"></table>
+      <H1>Фотоальбом</H1>
+    </header>
+    <br>
+    
+    <!-- Центральная часть -->
+    <table style="width: 100%; height=60%" border="1"><tbody>
+      <tr>
+      
+        <td style="width: 15%;">
+          <br>
+        </td>
+        
+        <td>
+          <table cellpadding="0" cellspacing="0" border="1"><tbody>
 
-        MailMe1 = new Image();
-	MailMe1.src = "mail.gif";
-	MailMe2 = new Image();
-	MailMe2.src = "mail_l.gif";
+            <tr style="vertical-align: top; height: 5%;">
+              <td style="width: 5%;">
+                <img src="photoalbumupleft.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%;">
+                <img src="photoalbumup.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 10%;">
+                <img src="photoalbumupcenter.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%;">
+                <img src="photoalbumup.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 5%;">
+                <img src="photoalbumupright.gif" style="width: 100%;"><br>
+              </td>
+            </tr>
 
-        News1 = new Image();
-	News1.src = "news.gif";
-	News2 = new Image();
-	News2.src = "news_l.gif";
+            <tr style="vertical-align: top; height: 90%;">
+              <td style="width: 5%;">
+                <img src="photoalbumleft.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%; background-color: rgb(255, 174, 0); text-align: justify; font-family: scriptc; color: rgb(102, 51, 0)">
+                <p><strong>Здесь вы увидите фотографии запечатлевшие лучшие моменты из моей жизни. Здесь нет ни грусти, ни проблем, ни разочарований, ни ссор. Однако это неизбежный путь, который приходится пройти. Этот путь лежит между 
+                каждой из таких фотографий и отделяет их одну от другой. Как правило он значительно продолжительнее этих коротких моментов. Они редки и порой даже мгновенны. Но это то, что украшает нашу жизнь и делает ее
+                яркой. Именно ради таких моментов, наверное, и стоит жить.</strong></p>
+                <p><span style="font-family: gothice; font-weight: bold; font-style: italic;">(c) Неизвестный автор</span></p>
+                
+                <footer align="center"><b>1</b></footer>
+              </td>
+              <td style="width: 10%;">
+                <img src="photoalbumcenter.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%; background-color: rgb(255, 174, 0); color: rgb(102, 51, 0); font-family: scriptc; font-style: italic; font-weight: bold;">
+                <p><strong>Здесь вы увидите фотографии запечатлевшие лучшие моменты из моей жизни. Здесь нет ни грусти, ни проблем, ни разочарований, ни ссор. Однако это неизбежный путь, который приходится пройти. Этот путь лежит между 
+                каждой из таких фотографий и отделяет их одну от другой. Как правило он значительно продолжительнее этих коротких моментов. Они редки и порой даже мгновенны. Но это то, что украшает нашу жизнь и делает ее
+                яркой. Именно ради таких моментов, наверное, и стоит жить.</strong></p>
+                <p><span style="font-family: gothice; font-weight: bold; font-style: italic;">(c) Неизвестный автор</span></p>
+                
+                <footer align="center"><b>2</b><a href="outdex.html"><img src="photoalbumnext.gif" title="Перелиснуть страницу вперёд" style="border: 0px solid ; width: 50px; height: 40px;"></a><br>
+                </footer>
+              </td>
+              <td style="width: 5%;">
+                <img src="photoalbumright.gif" style="width: 100%;"><br>
+              </td>
+            </tr>
 
-	Photos1 = new Image();
-	Photos1.src = "photoalbum.gif";
-	Photos2 = new Image();
-	Photos2.src = "photoalbum_l.gif";
+            <tr style="vertical-align: top; height: 5%;">
+              <td style="width: 5%;">
+                <img src="photoalbumdownleft.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%;">
+                <img src="photoalbumdown.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 10%;">
+                <img src="photoalbumcenterdown.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 40%;">
+                <img src="photoalbumdown.gif" style="width: 100%;"><br>
+              </td>
+              <td style="width: 5%;">
+                <img src="photoalbumdownrigth.gif" style="width: 100%;"><br>
+              </td>
+            </tr>
 
-        Hokkey1 = new Image();
-	Hokkey1.src = "hokkey.gif";
-	Hokkey2 = new Image();
-	Hokkey2.src = "hokkey_l.gif";
+          </tbody></table>
+           <!-- <img src="index.png" style="width: 100%;"></img> -->
+           <br>
+        </td>
+        
+        <td style=" width: 15%;">
+          <br>
+        </td>
+        
+      </tr>
+    </tbody></table>
+    
+    
+    <!-- Старый вариант -->
+    <table cellpadding="0" cellspacing="0" border="0" style="text-align: left; height: 500px; width: 1020px;"><tbody>
+    <tr>
+      <td style="vertical-align: top; width: 10px; height: 500px; white-space: nowrap;"><br></td>
+      <td style="vertical-align: top; height: 500px; width: 1000px;">
+      
+        <table cellpadding="0" cellspacing="0" border="1" style="text-align: left; height: 500px; width: 1000px;"><tbody>
+         <tr>
+           <td style="vertical-align: top; height: 50px; width: 50px; white-space: nowrap;">
+             <img src="photoalbumupleft.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top; white-space: nowrap;">
+             <img src="photoalbumup.gif" style="width: 425px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top; height: 50px; width: 50px;">
+             <img src="photoalbumupcenter.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top;">
+             <img src="photoalbumup.gif" style="width: 425px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top; height: 50px; width: 50px;">
+             <img src="photoalbumupright.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+         </tr>
+         
+         <tr>
+           <td style="vertical-align: top;">
+             <img src="photoalbumleft.gif" style="width: 50px; height: 500px;"><br>
+           </td>
+           <td style="background-color: rgb(255, 174, 0); vertical-align: top; text-align: justify; font-family: scriptc; color: rgb(0, 0, 0);">
+            
+             <table cellpadding="5" cellspacing="0" border="0" style="text-align: left; width: 425px; height: 500px;"><tbody>
+             
+               <tr style="color: rgb(102, 51, 0);">
+                 <td style="vertical-align: top;">
+                 &nbsp;Здесь вы увидите фотографии запечатлевшие лучшие моменты из моей жизни.
+Здесь нет ни грусти, ни проблем, ни разочарований, ни ссор. Однако это
+неизбежный путь, который приходится пройти. Этот путь лежит между
+каждой из таких фотографий&nbsp; и отделяет их одну от другой. Как
+правило
+он значительно продолжительнее этих коротких моментов. Они редки и
+порой даже мгновенны. Но это то, что украшает нашу жизнь и делает ее
+яркой. Именно ради таких моментов, наверное, и стоит жить.
+                 </td>
+               </tr>
+               
+               <tr style="color: rgb(102, 51, 0);" align="center">
+                 <td style="vertical-align: top; height: 40px;">
+                   <span style="font-family: gothice; font-weight: bold; font-style: italic;">1</span><br>
+                 </td>
+               </tr>
+               
+             </tbody></table>
+            
+           </td>
+           <td style="vertical-align: top;">
+             <img src="photoalbumcenter.gif" style="width: 50px; height: 500px;"><br>
+           </td>
+           
+           <td style="vertical-align: top; background-color: rgb(255, 174, 0); color: rgb(102, 51, 0); font-family: scriptc; font-style: italic; font-weight: bold;">
+           
+            <table cellpadding="0" cellspacing="0" border="0" style="text-align: left; width: 425px; height: 500px;"><tbody>
+              <tr>
+                <td style="vertical-align: top; height: 10px; width: 50px;"><br></td>
+                <td style="vertical-align: top; height: 10px;"><br></td>
+                <td style="vertical-align: top; height: 10px; width: 50px;"><br></td>
+              </tr>
+              
+              <tr>
+                <td style="vertical-align: top; width: 50px;"><br></td>
+                <td style="vertical-align: top; text-align: center; white-space: nowrap;">
+                  <a href="photos/photo1.html"><img src="photos/1s.jpg" title="Вечеринка по случаю окончания учебного года. (Университет, второй курс)" vspace="0" style="border: 5px solid ; width: 280px; height: 162px;"></a><br>
+                  <span style="color: rgb(51, 0, 0);">Окончание второго курса.</span>
+                </td>
+                <td style="vertical-align: top; width: 50px;"><br></td>
+              </tr>
+              
+              <tr>
+                <td style="vertical-align: top; width: 50px;"><br></td>
+                <td style="vertical-align: top; text-align: center;">
+                  <a href="photos/photo2.html"><img src="photos/2s.jpg" title="Школа. Последний звонок. 1999 г." style="border: 5px solid ; height: 156px; width: 289px;" vspace="0"></a><br>
+                  <span style="color: rgb(51, 0, 0);">Выпуск 1999г.</span><br>
+                </td>
+                <td style="vertical-align: top; width: 50px;"><br></td>
+              </tr>
+              
+              <tr>
+                <td style="vertical-align: top; height: 40px; width: 50px;"><br></td>
+                <td style="vertical-align: top; height: 40px; text-align: center;">
+                  <span style="color: rgb(102, 51, 0); font-family: gothice; font-weight: bold; font-style: italic;">2</span><br>
+                </td>
+                <td style="vertical-align: top; height: 40px; width: 50px;">
+                  <a href="photoalbum2.dhtml"><img src="photoalbumnext.gif" title="Перелиснуть страницу вперёд" style="border: 0px solid ; width: 50px; height: 40px;"></a><br>
+                </td>
+              </tr>
+            </tbody></table>
+            
+            
+           </td>
+           <td style="vertical-align: top;"><img src="photoalbumright.gif" style="width: 50px; height: 500px;"><br></td>
+         </tr>
+         
+         <tr>
+           <td style="vertical-align: top; height: 50px; width: 50px; white-space: nowrap;">
+             <img src="photoalbumdownleft.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+           
+           <td style="vertical-align: top;">
+             <img src="photoalbumdown.gif" style="width: 425px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top; height: 50px; width: 50px;">
+             <img src="photoalbumcenterdown.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top;">
+             <img src="photoalbumdown.gif" style="width: 425px; height: 50px;"><br>
+           </td>
+           <td style="vertical-align: top; height: 50px; width: 50px;">
+             <img src="photoalbumdownrigth.gif" style="width: 50px; height: 50px;"><br>
+           </td>
+           
+         </tr>
+       </tbody></table>
+       
+     </td>
 
-	function show(buttonname, buttonvar)
-	{
-		document.images[buttonname].src=buttonvar.src;
-	}
-	</script>
-    <table style="width: 100%;" border="0" cellpadding="0"
-      cellspacing="2">
-      <tbody>
-        <tr>
-          <td style="vertical-align: top; width: 21%;" colspan="1"
-            rowspan="2"> <img src="moon.png" style="width: 126px;
-              height: 112px;"> <br>
-          </td>
-          <td style="vertical-align: top;"><br>
-          </td>
-          <td style="vertical-align: top; height: 48px; width: 48px;"> <a
-              href="mailto:lazutin@newmail.ru" target="_self"
-              onmouseout="show('MailMe', MailMe1);"
-              onmouseup="show('MailMe', MailMe1);"
-              onmouseover="show('MailMe', MailMe2);"
-              onmousedown="show('MailMe', MailMe2);"><img
-                src="mail.gif" title="�_�_�_�_�_�_ �_�_�_ �_�_�_�_�_�_."
-                name="MailMe" border="0" height="48" width="48"> </a></td>
-          <td style="vertical-align: top; height: 48px; width: 48px;"> <a
-              href="photoalbum/index.html" target="_self"
-              onmouseout="show('Photos', Photos1);"
-              onmouseup="show('Photos', Photos1);"
-              onmouseover="show('Photos', Photos2);"
-              onmousedown="show('Photos', Photos2);"> <img
-                src="photoalbum.gif" title="�_�_�_�_�_�_�_�_�_�_"
-                name="Photos" border="0" height="48" width="48"> </a> </td>
-          <td style="vertical-align: top; height: 48px; width: 48px;"> <a
-              href="news/index.html" target="_self" onmouseout="show('News',
-              News1);" onmouseup="show('News', News1);"
-              onmouseover="show('News', News2);"
-              onmousedown="show('News', News2);"> <img
-                src="news.gif" title="�_�_�_�_�_�_�_" name="News"
-                border="0" height="48" width="48"> </a> </td>
-          <td style="vertical-align: top; height: 48px; width: 48px;"> <a
-              href="hokkey/index.html" target="_self"
-              onmouseout="show('Hokkey', Hokkey1);"
-              onmouseup="show('Hokkey', Hokkey1);"
-              onmouseover="show('Hokkey', Hokkey2);"
-              onmousedown="show('Hokkey', Hokkey2);"> <img
-                src="hokkey.gif" title="�_�_�_�_ '�_�_�_�_�_�_�_�_'"
-                name="Hokkey" border="0" height="48" width="48"> </a>
-          </td>
-        </tr>
-        <tr style="font-weight: bold; font-style: italic; font-size:
-          24px;">
-          <td style="vertical-align: top;" colspan="9">
-            <div style="text-align: center;"> �_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_ �_�_�_
-              �_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_, �_�_ �_�_�_ �_�_�_�_�_�_�_�_�_ '�_�_�_�_�_�_'!</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table style="height: 200px; width: 100%;" border="0"
-      cellpadding="2" cellspacing="2">
-      <tbody>
-        <tr>
-          <td style="width: 170px; vertical-align: top;"> <a
-              href="aboutme.dhtml" target="_self"
-              onmouseout="show('About', About1);"
-              onmouseup="show('About', About1);"
-              onmouseover="show('About', About2);"
-              onmousedown="show('About', About2);"><img
-                src="files/about.gif" title="�_�_�_�_�_ �_�_�_�_�_�_�_�_ �_�_�_ �_�_�_"
-                name="About" border="0" height="35" width="170"></a> <a
-              href="lirics.dhtml" target="_self"
-              onmouseout="show('Lirics', Lirics1);"
-              onmouseup="show('Lirics', Lirics1);"
-              onmouseover="show('Lirics', Lirics2);"
-              onmousedown="show('Lirics', Lirics2);"> <img
-                src="files/lirics.gif" title="�_�_�_�_�_�_�_ �_�_�_�_�_�_"
-                name="Lirics" border="0" height="35" width="170"></a> <a
-              href="thewall.dhtml" target="_self"
-              onmouseout="show('TheWall', TheWall1);"
-              onmouseup="show('TheWall', TheWall1);"
-              onmouseover="show('TheWall', TheWall2);"
-              onmousedown="show('TheWall', TheWall2);"> <img
-                src="files/thewall.gif" title="�_�_�_�_�_ - �_�_�_�_�_ �_�_�_�_ �_�_�_
-                �_�_�_�_�_�_�_..." name="TheWall" border="0" height="35"
-                width="170"></a> <a href="projects.dhtml"
-              target="_self" onmouseout="show('Projects', Projects1);"
-              onmouseup="show('Projects', Projects1);"
-              onmouseover="show('Projects', Projects2);"
-              onmousedown="show('Projects', Projects2);"> <img
-                src="files/projects.gif" title="�_�_�_�_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_�_�_�_,�_�_�_�_�_�_�_, �_�_�_�_�_�_�_�_�_�_�_�_ �_ �_�_ �_ �_�_�_�_ �_�_�_�_"
-                name="Projects" border="0" height="35" width="170"></a>
-            <a href="Old/index.dhtml" target="_self"
-              onmouseout="show('OldPage', OldPage1);"
-              onmouseup="show('OldPage', OldPage1);"
-              onmouseover="show('OldPage', OldPage2);"
-              onmousedown="show('OldPage', OldPage2);"> <img
-                src="files/oldpage.gif" title="�_�_�_�_�_ �_�_�_�_�_-�_�_�_�_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_ '�_�_�_�_�_�_'" name="OldPage" border="0"
-                height="35" width="170"> </a> <br>
-            <br>
-            <!--#include virtual=dencnt.cgi?name="index"--> </td>
-          <td style="vertical-align: top; width: 20px;"><br>
-          </td>
-          <td style="vertical-align: top; text-align: center;">
-            <div style="text-align: justify; font-size: 16px;"><font
-                cellpadding="5" cellspacing="30" color="#ffffff">&nbsp;�_�_�_
-�_�_�_
-
-                �_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_ �_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_�_ �_�_�_�_�_�_�_�_�_ - �_�_�_
-                �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_. �_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_, �_ �_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_. �_�_�_ �_�_�_
-                �_�_�_�_�_�_�_ �_�_�_ �_�_�_�_�_ �_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_�_, �_�_�_�_�_�_ �_�_�_�_�_�_�_�_
-                �_�_ �_�_�_ �_ �_�_�_�_�_�_ �_�_ �_�_�_�_�_�_ �_�_ �_�_�_�_�_�_�_�_�_�_, �_ �_�_�_�_�_�_�_�_ �_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_. �_ �_�_�_ �_�_�_�_�_�_, �_�_�_ �_�_�_�_�_�_�_�_�_�_�_&nbsp; �_�_�_
-                �_�_�_�_�_ �_�_ �_�_�_�_�_�_�_, �_�_�_ �_�_�_�_�_�_. �_�_�_�_�_ �_�_�_�_ �_�_�_�_ �_�_�_�_�_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_ �_�_�_�_�_ �_ �_�_�_�_�_�_�_�_. �_�_�_�_�_�_�_�_ �_�_ �_�_�_ �_�_�_ �_�_�_�_�_�_�_�_
-                �_�_�_ �_�_�_ �_ �_�_ �_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_ �_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_ �_ �_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_, �_�_
-                �_�_�_ �_�_�_�_�_�_�_ �_�_�_�_�_�_�_ �_�_�_, �_�_�_ �_�_�_�_�_�_�_�_�_�_�_ �_ Netscape
-                Navigator, Internet Explorer �_ Opera �_�_�_�_�_�_�_�_ �_�_ �_�_�_�_�_�_�_
-                �_�_�_�_ �_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_. �_�_�_ �_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_ 1024*768 �_
-                �_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_. �_�_ �_�_�_�_ �_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_
-                �_�_�_�_�_�_ �_�_�_�_�_ �_�_�_�_�_ �_�_�_�_�_�_�_�_ �_�_�_, �_�_�_ �_�_ �_�_�_ �_�_�_�_�_�_ �_
-                �_�_�_�_�_�_ �_�_�_�_�_�_. �_�_�_�_�_�_ �_�_�_�_�_�_ �_�_�_�_�_ �_�_ �_�_�_�_�_�_�_�_�_�_, �_�_�_
-                �_�_�_ �_�_ �_�_�_�_�_�_ �_�_�_�_�_�_�_ �_�_�_ �_ �_�_�_�_�_�_�_, �_�_�_�_�_ �_�_�_�_�_�_�_�_
-                '�_�_�_�_�_�_ �_�_�_�_�_�_ �_�_�_�_�_�_�_�_'. �_ �_�_�_�_�_�_�_�_�_�_ �_�_�_�_ �_�_�_�_�_ �_�_�_�_�_
-                �_�_�_�_�_�_�_�_�_�_�_ �_ �_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_. �_�_�_ �_�_�_�_�_�_�_ �_
-                �_�_�_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_ �_�_�_�_�_�_�_�_�_ �_ �_�_�_�_�_�_�_�_ �_�_�_�_�_. �_�_ �_�_�_
-                �_�_�_�_�_ �_ �_�_, �_�_�_ �_�_�_�_�_�_�_�_�_ �_�_�_�_�_�_�_ �_�_�_�_�_. �_�_�_�_�_�_�_�_�_ �_�_�_
-                �_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_�_!<br>
-                <small><small><small>&nbsp;</small></small></small><br>
-                <big><span style="font-weight: bold;">�_�_
-                    �_�_�_�_!&nbsp;&nbsp; <img src="files/me1.gif"
-                      style="width: 48px; height: 48px;" align="middle"></span></big></font>
-            </div>
-          </td>
-          <td style="vertical-align: top; width: 50px;"> <br>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table style="width: 100%; height: 188px;" border="0">
-      <tbody>
-        <tr>
-          <td valign="top" width="40%"><img src="earth.png"
-              style="width: 226px; height: 195px;"> </td>
-          <td style="vertical-align: top; width: 30%;"> <br>
-          </td>
-          <td align="right" valign="top"><img src="sun.png"
-              style="height: 134px; width: 140px;" title=""> <br>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+     <td style="vertical-align: top; width: 10px; height: 500px;"><br></td>
+   </tr>
+ </tbody></table>
+<br>
   </body>
 </html>

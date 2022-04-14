@@ -1,0 +1,54 @@
+header, footer, article, body {
+  display:block;
+}
+
+nav {
+  display: block;
+  border: none; /* Параметры рамки */
+}
+
+html {
+  height: 100%; /* Высота страницы */
+}
+
+
+
+footer {
+  clear:both;
+}
+
+body {
+  color: rgb(255, 255, 102);
+  background-color: rgb(5, 5, 109);
+  background-image: url(background.png);
+}
+
+H1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Навигация по всему сайту */
+#main_menu {
+  float:left;
+}
+
+
+canvas {
+  border: 1px solid #ccc;
+  cursor: crosshair;
+  display: block;
+}
+
+.button {
+    border: none;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    height: 48px;
+    width: 96px;
+}

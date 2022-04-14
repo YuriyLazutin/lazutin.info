@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# check for zero UID
+RUID=$( /usr/bin/id | awk -F\( '{print $1}' | awk -F= '{print $2}' )
+if [ ${RUID} -ne 0 ]; then
+  echo "You must be logged in as user with UID as zero (e.g. root user) to run this script."
+  echo "Log in as user with UID as zero (e.g. root user) and restart this script."
+  exit 1
+fi
+
+find "html" -type d -exec chown www-upload:www-data {} \;
+find "html" -type d -exec chmod ug=rwX,o=rX {} \;
+find "html" -type f -exec chown www-upload:www-data {} \;
+find "html" -type f -exec chmod ug=rw,o=r {} \;
+chown root:www-data "html"
+chmod ug=rwX,o=rX "html"

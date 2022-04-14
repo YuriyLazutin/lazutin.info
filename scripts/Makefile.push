@@ -1,0 +1,29 @@
+#
+# Использование Makefile для переноса файлов конфигурации (*.conf) на ведомую систему.
+#
+
+SLAVE= www.server2.lazutin.info
+APACHE= /usr/local/apache
+RM= /bin/rm
+TOUCH= /bin/touch
+SSH= /usr/local/bin/ssh
+SCP= /usr/local/bin/scp
+
+.SUFFIXES: .conf .ts
+
+all: test restart sites.ts globals.ts httpd.ts
+
+configtest: test
+
+test:
+	@echo -n "Testing Apache configuration: "
+	@$(APACHE)/bin/apachectl configtest
+
+restart:
+	$(APACHE)/bin/apachectl restart
+
+.conf .ts:
+	@$(RM) -f $@
+	@$(SCP) $*.conf $(SLAVE):$(APACHE)/conf
+	@$(SSH) $(SLAVE) $(APACHE)bin/apachectl restart
+	@$(TOUCH) $@

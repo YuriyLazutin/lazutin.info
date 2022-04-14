@@ -13,7 +13,7 @@
 -->
     <title>lazutin.info - персональная страница Лазутина Юрия</title>
     <link rel="stylesheet" type="text/css" href="index.css">
-    
+
   </head>
   <body
      bgproperties="fixed"
@@ -22,59 +22,64 @@
      link="#33ccff"
      vlink="#990099"
   >
-    
+
     <script language="javascript" type="text/javascript">
       VK1 = new Image();
       VK1.src = "vk.gif";
       VK2 = new Image();
       VK2.src = "vk_l.gif";
-      
+
       MailMe1 = new Image();
       MailMe1.src = "mail.gif";
       MailMe2 = new Image();
       MailMe2.src = "mail_l.gif";
-      
+
       CallMe1 = new Image();
       CallMe1.src = "skype.png";
       CallMe2 = new Image();
       CallMe2.src = "skype_l.png";
-      
+
       News1 = new Image();
       News1.src = "news.gif";
       News2 = new Image();
       News2.src = "news_l.gif";
-      
+
       Photos1 = new Image();
       Photos1.src = "photoalbum.gif";
       Photos2 = new Image();
       Photos2.src = "photoalbum_l.gif";
-      
+
       Hokkey1 = new Image();
       Hokkey1.src = "hokkey.gif";
       Hokkey2 = new Image();
       Hokkey2.src = "hokkey_l.gif";
-      
+
       Skating1 = new Image();
       Skating1.src = "skating.gif";
       Skating2 = new Image();
       Skating2.src = "skating_l.gif";
-      
+
       Dancing1 = new Image();
       Dancing1.src = "dancing.gif";
       Dancing2 = new Image();
       Dancing2.src = "dancing_l.gif";
-      
+
       Farm1 = new Image();
       Farm1.src = "farm.gif";
       Farm2 = new Image();
       Farm2.src = "farm_l.gif";
-      
+
+      Maning1 = new Image();
+      Maning1.src = "linfo.gif";
+      Maning2 = new Image();
+      Maning2.src = "linfo_l.gif";
+
       function show(buttonname, buttonvar)
       {
-      document.images[buttonname].src=buttonvar.src;
+        document.images[buttonname].src=buttonvar.src;
       }
     </script>
-    
+
     <!--
       border - толщина рамки
       cellpadding - расстояние от рамки до содержимого ячейки со всех сторон
@@ -336,6 +341,31 @@
                     <td style="vertical-align: top; height: 48px; width: 16px;">
                       <br>
                     </td>
+                    <!-- Кнопка "Майнить" -->
+                    <td style="vertical-align: top; height: 48px; width: 48px;">
+                      <a
+                        href="maning/index.html"
+                        target="_self"
+                        onmouseout="show('Maning', Maning1);"
+                        onmouseup="show('Maning', Maning1);"
+                        onmouseover="show('Maning', Maning2);"
+                        onmousedown="show('Maning', Maning2);"
+                      >
+                        <img
+                          alt="Майнить криптовалюту"
+                          src="linfo.gif"
+                          title="Майнить криптовалюту"
+                          name="Maning"
+                          border="0"
+                          height="48"
+                          width="48"
+                        >
+                        </img>
+                      </a>
+                    </td>
+                    <td style="vertical-align: top; height: 48px; width: 16px;">
+                      <br>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -349,7 +379,7 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- Центральная часть -->
     <table
       border="0"
@@ -370,7 +400,7 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- Нижняя часть с землей и солнцем -->
     <table
       style="width: 100%; height: 188px;"
