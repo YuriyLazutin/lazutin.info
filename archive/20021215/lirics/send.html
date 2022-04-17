@@ -1,58 +1,59 @@
-<html> <head> <title> Отправка вашего стихотворения </title></head>
+<html>
+  <head>
+    <title>Отправка вашего стихотворения</title>
+  </head>
 
-<body bgcolor=#7777ff link="#ffffff" vlink="#aaffff" alink=red>
-
-
-
-<form action="mailto:lazutin@newmail.ru?SUBJECT=lirics" method=post enctype=text/plain >
-<input type=hidden name="hdd1" value="Стихотворение">
-<table >
-
-<tr><td colspan=2 align=center>
-<A HREF="javascript:history.back()"> <FONT size=4> Hазад </font> </A>_
-<A HREF="lirics.html"> <FONT size=4> Стихи </font> </A>_
-<A HREF="../index.html"> <FONT size=4> Главная </font> </A>
-</td></tr>
-
-<tr><td colspan=2 align=center><FONT FACE="Times New Roman" SIZE=6 COLOR="#00ffff">Отправка вашего стихотворения </FONT></td></tr>
-
-<tr>
- <td width=50% align=left>
-   Ваше имя:<br>
-   <input type=text name="имя" size=25>
- </td>
- <td width=50% align=right>
-   e-mail:<br>
-   <input type=text name="email" size=25>
- </td>
- </tr>
-
- <tr>
- <td align=left>
-   Ваш возраст:<br>
-   <input type=text name="возраст" size=3>
- </td>
- <td align=right>
-   Ваш пол:<br>
-            <select name="pol">
-                <option value="мужской">мужской
-                <option value="женский">женский
-                <option value="еще не определился">еще не определился
-            </select>
- </td>
- </tr>
-
- <tr>
- <td colspan=2 align=center>
-  Название стихотворния:<br>
-  <input type=text name="liricsname"><br>
-  <TEXTAREA NAME="stix" ROWS=17 COLS=50 > </TEXTAREA><br><br>
-  <input type=reset NAME="RSTBUTTON" value="Очистить">
-  <input type=Submit NAME="SNDBUTTON" value="Послать">
- </td>
- </tr>
-</table>
-</form>
+<body bgcolor="#7777ff" link="#ffffff" vlink="#aaffff" alink="red">
+  <form action="mailto:lazutin@newmail.ru?SUBJECT=lirics" method="post" enctype="text/plain">
+    <input type="hidden" name="hdd1" value="Стихотворение">
+    <table style="width: 100%;" cellspacing="10">
+      <tr>
+        <td colspan=2 align=center>
+          <A HREF="javascript:history.back()"> <FONT size=4> Hазад </font> </A>_
+          <A HREF="lirics.html"> <FONT size=4> Стихи </font> </A>_
+          <A HREF="../index.html"> <FONT size=4> Главная </font> </A>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <font face="Times New Roman" size="6" color="#00ffff">Отправка вашего стихотворения </font>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50%; text-align: left;">
+          <div style="text-align: right;"> Ваше имя:<br></div>
+          <div style="text-align: right;"><input type="text" name="имя" size="25"> </div>
+        </td>
+        <td style="width: 50%; text-align: right;">
+          <div style="text-align: left;"> e-mail:<br></div>
+          <div style="text-align: left;"><input type="text" name="email" size="25"> </div>
+        </td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+          <div style="text-align: right;"> Ваш возраст:<br></div>
+          <div style="text-align: right;"><input type="text" name="возраст" size="3"> </div>
+        </td>
+       <td style="text-align: left;">
+          Ваш пол:<br>
+          <select name="pol">
+            <option value="мужской">мужской </option>
+            <option value="женский">женский </option>
+            <option value="еще не определился">еще не определился </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          Название стихотворния:<br>
+          <input type="text" name="liricsname"><br>
+          <textarea name="stix" rows="17" cols="50"> </textarea><br><br>
+          <input type="reset" name="RSTBUTTON" value="Очистить">
+          <input type="submit" name="SNDBUTTON" value="Послать">
+        </td>
+      </tr>
+    </table>
+  </form>
 
 </body>
 </html>
