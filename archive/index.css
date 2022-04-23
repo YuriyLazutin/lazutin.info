@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   color: rgb(255, 255, 102);
   background-color: rgb(5, 5, 109);
-  background-image: url(background.png);
+  background-image: url(../background.png);
   background-attachment: fixed; /*Фон неподвижен при прокрутке страницы*/
 }
 
