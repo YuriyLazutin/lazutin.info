@@ -19,59 +19,9 @@
   <body onload="window.defaultStatus='Добро пожаловать на мой сайт lazutin.info'">
 
     <script language="javascript" type="text/javascript">
-      VK1 = new Image();
-      VK1.src = "vk.gif";
-      VK2 = new Image();
-      VK2.src = "vk_l.gif";
-
-      MailMe1 = new Image();
-      MailMe1.src = "mail.gif";
-      MailMe2 = new Image();
-      MailMe2.src = "mail_l.gif";
-
-      CallMe1 = new Image();
-      CallMe1.src = "skype.png";
-      CallMe2 = new Image();
-      CallMe2.src = "skype_l.png";
-
-      News1 = new Image();
-      News1.src = "news.gif";
-      News2 = new Image();
-      News2.src = "news_l.gif";
-
-      Photos1 = new Image();
-      Photos1.src = "photoalbum.gif";
-      Photos2 = new Image();
-      Photos2.src = "photoalbum_l.gif";
-
-      VideoBox1 = new Image();
-      VideoBox1.src = "videobox.png";
-      VideoBox2 = new Image();
-      VideoBox2.src = "videobox_l.png";
-
-      Hokkey1 = new Image();
-      Hokkey1.src = "hokkey.gif";
-      Hokkey2 = new Image();
-      Hokkey2.src = "hokkey_l.gif";
-
-      Skating1 = new Image();
-      Skating1.src = "skating.gif";
-      Skating2 = new Image();
-      Skating2.src = "skating_l.gif";
-
-      Dancing1 = new Image();
-      Dancing1.src = "dancing.gif";
-      Dancing2 = new Image();
-      Dancing2.src = "dancing_l.gif";
-
-      Archive1 = new Image();
-      Archive1.src = "archive.png";
-      Archive2 = new Image();
-      Archive2.src = "archive_l.png";
-
-      function show(buttonname, buttonvar)
+      function set_img(btn_name, img_src)
       {
-        document.images[buttonname].src=buttonvar.src;
+        document.images[btn_name].src = img_src;
       }
     </script>
 
@@ -80,44 +30,94 @@
       <nav id="main_menu">
         <!-- Кнопка "Вконтактить" -->
         <a href="https://vk.com/share.php?url=https://yuriylazutin.github.io/lazutin.info">
-          <img class="toolbtn" alt="Вконтактить!" src="vk.gif" title="Вконтактить!" name="VK" onmouseout="show('VK', VK1);" onmouseup="show('VK', VK1);" onmouseover="show('VK', VK2);" onmousedown="show('VK', VK2);"></img>
+          <img class="toolbtn" name="VK" src="vk.gif" alt="Вконтактить!" title="Вконтактить!"
+            onmouseout="set_img('VK', 'vk.gif');"
+            onmouseup="set_img('VK', 'vk.gif');"
+            onmouseover="set_img('VK', 'vk_l.gif');"
+            onmousedown="set_img('VK', 'vk_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Написать мне письмо" -->
         <a href="mailto:lazutin@newmail.ru">
-          <img class="toolbtn" alt="Написать мне письмо" src="mail.gif" title="Написать мне письмо" name="MailMe" onmouseout="show('MailMe', MailMe1);" onmouseup="show('MailMe', MailMe1);" onmouseover="show('MailMe', MailMe2);" onmousedown="show('MailMe', MailMe2);"></img>
+          <img class="toolbtn" name="MailMe" src="mail.gif" alt="Написать мне письмо" title="Написать мне письмо"
+            onmouseout="set_img('MailMe', 'mail.gif');"
+            onmouseup="set_img('MailMe', 'mail.gif');"
+            onmouseover="set_img('MailMe', 'mail_l.gif');"
+            onmousedown="set_img('MailMe', 'mail_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Позвонить мне" -->
         <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
         <a href="skype:lazutinyy@live.ru?call">
-          <img class="toolbtn" alt="Позвонить мне" src="skype.png" title="Позвонить мне" name="CallMe" onmouseout="show('CallMe', CallMe1);" onmouseup="show('CallMe', CallMe1);" onmouseover="show('CallMe', CallMe2);" onmousedown="show('CallMe', CallMe2);"></img>
+          <img class="toolbtn" name="CallMe" src="skype.png" alt="Позвонить мне" title="Позвонить мне"
+            onmouseout="set_img('CallMe', 'skype.png');"
+            onmouseup="set_img('CallMe', 'skype.png');"
+            onmouseover="set_img('CallMe', 'skype_l.png');"
+            onmousedown="set_img('CallMe', 'skype_l.png');">
+          </img>
         </a>
         <!-- Кнопка "Фотоальбом" -->
         <a href="photoalbum/index.html">
-          <img class="toolbtn" alt="Фотоальбом" src="photoalbum.gif" title="Фотоальбом" name="Photos" onmouseout="show('Photos', Photos1);" onmouseup="show('Photos', Photos1);" onmouseover="show('Photos', Photos2);" onmousedown="show('Photos', Photos2);"></img>
+          <img class="toolbtn" name="Photos" src="photoalbum.gif" alt="Фотоальбом" title="Фотоальбом"
+            onmouseout="set_img('Photos', 'photoalbum.gif');"
+            onmouseup="set_img('Photos', 'photoalbum.gif');"
+            onmouseover="set_img('Photos', 'photoalbum_l.gif');"
+            onmousedown="set_img('Photos', 'photoalbum_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "VideoBox" -->
         <a href="videobox/index.html">
-          <img class="toolbtn" alt="VideoBox" src="videobox.png" title="VideoBox" name="VideoBox" onmouseout="show('VideoBox', VideoBox1);" onmouseup="show('VideoBox', VideoBox1);" onmouseover="show('VideoBox', VideoBox2);" onmousedown="show('VideoBox', VideoBox2);"></img>
+          <img class="toolbtn" name="VideoBox" src="videobox.png" alt="VideoBox" title="VideoBox"
+            onmouseout="set_img('VideoBox', 'videobox.png');"
+            onmouseup="set_img('VideoBox', 'videobox.png');"
+            onmouseover="set_img('VideoBox', 'videobox_l.png');"
+            onmousedown="set_img('VideoBox', 'videobox_l.png');">
+          </img>
         </a>
         <!-- Кнопка "Новости" -->
         <a href="news/index.html">
-          <img class="toolbtn" alt="Новости" src="news.gif" title="Читать новости" name="News" onmouseout="show('News', News1);" onmouseup="show('News', News1);" onmouseover="show('News', News2);" onmousedown="show('News', News2);"></img>
+          <img class="toolbtn" name="News" src="news.gif" alt="Новости" title="Читать новости"
+            onmouseout="set_img('News', 'news.gif');"
+            onmouseup="set_img('News', 'news.gif');"
+            onmouseover="set_img('News', 'news_l.gif');"
+            onmousedown="set_img('News', 'news_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Хоккей" -->
         <a href="hokkey/index.html">
-          <img class="toolbtn" alt="Хоккей" src="hokkey.gif" title="О хоккее" name="Hokkey" onmouseout="show('Hokkey', Hokkey1);" onmouseup="show('Hokkey', Hokkey1);" onmouseover="show('Hokkey', Hokkey2);" onmousedown="show('Hokkey', Hokkey2);"></img>
+          <img class="toolbtn" name="Hokkey" src="hokkey.gif" alt="Хоккей" title="О хоккее"
+            onmouseout="set_img('Hokkey', 'hokkey.gif');"
+            onmouseup="set_img('Hokkey', 'hokkey.gif');"
+            onmouseover="set_img('Hokkey', 'hokkey_l.gif');"
+            onmousedown="set_img('Hokkey', 'hokkey_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Фигурное катание" -->
         <a href="skating/index.html">
-          <img class="toolbtn" alt="О фигурном катании" src="skating.gif" title="О фигурном катании" name="Skating" onmouseout="show('Skating', Skating1);" onmouseup="show('Skating', Skating1);" onmouseover="show('Skating', Skating2);" onmousedown="show('Skating', Skating2);"></img>
+          <img class="toolbtn" name="Skating" src="skating.gif" alt="О фигурном катании" title="О фигурном катании"
+            onmouseout="set_img('Skating', 'skating.gif');"
+            onmouseup="set_img('Skating', 'skating.gif');"
+            onmouseover="set_img('Skating', 'skating_l.gif');"
+            onmousedown="set_img('Skating', 'skating_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Танцы" -->
         <a href="dancing/index.html">
-          <img class="toolbtn" alt="Про танцы" src="dancing.gif" title="Про танцы" name="Dancing" onmouseout="show('Dancing', Dancing1);" onmouseup="show('Dancing', Dancing1);" onmouseover="show('Dancing', Dancing2);" onmousedown="show('Dancing', Dancing2);"></img>
+          <img class="toolbtn" name="Dancing" src="dancing.gif" alt="Про танцы" title="Про танцы"
+            onmouseout="set_img('Dancing', 'dancing.gif');"
+            onmouseup="set_img('Dancing', 'dancing.gif');"
+            onmouseover="set_img('Dancing', 'dancing_l.gif');"
+            onmousedown="set_img('Dancing', 'dancing_l.gif');">
+          </img>
         </a>
         <!-- Кнопка "Архив" -->
         <a href="archive/index.html">
-          <img class="toolbtn" alt="Архив" src="archive.png" title="Архив" name="Archive" onmouseout="show('Archive', Archive1);" onmouseup="show('Archive', Archive1);" onmouseover="show('Archive', Archive2);" onmousedown="show('Archive', Archive2);"></img>
+          <img class="toolbtn" name="Archive" src="archive.png" alt="Архив" title="Архив"
+            onmouseout="set_img('Archive', 'archive.png');"
+            onmouseup="set_img('Archive', 'archive.png');"
+            onmouseover="set_img('Archive', 'archive_l.png');"
+            onmousedown="set_img('Archive', 'archive_l.png');">
+          </img>
         </a>
       </nav>
     </header>
